@@ -5,6 +5,12 @@ import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
   state = { lat: null, errorMessage: "" };
+  styles = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+  };
 
   componentDidMount() {
     // get geolocation latitude
@@ -21,7 +27,11 @@ class App extends React.Component {
     if (!this.state.errorMessage && this.state.lat)
       return <SeasonDisplay lat={this.state.lat} />;
 
-    return <div>Loading!</div>; // if latitude and error not initialized
+    return (
+      <div style={this.styles}>
+        <i class="big notched circle loading icon"></i>
+      </div>
+    ); // if latitude and error not initialized
   }
 }
 
