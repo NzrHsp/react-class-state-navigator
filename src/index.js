@@ -14,8 +14,7 @@ class App extends React.Component {
       (err) => this.setState({ errorMessage: err.message })
     );
   }
-
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat)
       // render error
       return <div>Error: {this.state.errorMessage}</div>;
@@ -23,6 +22,9 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />;
 
     return <Loader />; // if latitude and error not initialized
+  }
+  render() {
+    return <div className="border red">{this.renderContent()}</div>;
   }
 }
 

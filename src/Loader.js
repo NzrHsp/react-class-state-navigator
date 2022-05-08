@@ -1,12 +1,14 @@
 import React from "react";
 
-class Loader extends React.Component {
-  render() {
-    return (
-      <div className="ui active inverted dimmer">
-        <div className="ui text loader">Loading</div>
-      </div>
-    );
-  }
-}
+const Loader = (props) => {
+  return (
+    <div className="ui active inverted dimmer">
+      <div className="ui text loader">{props.message}</div>
+    </div>
+  );
+};
+
+Loader.defaultProps = {
+  message: "Loading...",
+};
 export default Loader;
